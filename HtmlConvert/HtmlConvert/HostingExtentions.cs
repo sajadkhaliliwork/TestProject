@@ -14,9 +14,9 @@ public static class HostingExtentions
 
         services.Configure<ExcelLinkOptions>(configuration.GetSection(key: nameof(ExcelLinkOptions)));
 
-        services.AddSingleton<ILinkProvider, ExcelLinkProvider>();
+        services.AddTransient<ILinkProvider, ExcelLinkProvider>();
        // services.AddTransient<ILinkProvider>(sp => new ExcelLinkProvider("Link.xlsx"));
-        services.AddSingleton<IConvertorHtml, AhoCorasick2>();
+        services.AddTransient<IConvertorHtml, AhoCorasick2>();
         return services;
     }
 }

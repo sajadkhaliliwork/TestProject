@@ -14,15 +14,15 @@ public class HtmlConvertController : ControllerBase
         this.convertHtml = convertHtml;
     }
 
-    //[HttpGet(Name = "GetWeatherForecast")]
-    //public string Get()
-    //{
-    //    var file = System.IO.File.ReadAllText("Topic.html");
+    [HttpGet]
+    public string Get()
+    {
+        var file = System.IO.File.ReadAllText("Topic.html");
 
-    //    return convertHtml.Convert(file);
-    //}
+        return convertHtml.Convert(file);
+    }
 
-    [HttpGet(Name = "Convert")]
+    [HttpGet( "Convert/{input}")]
     public string Convert(string input)
     {
         return convertHtml.Convert(input);
